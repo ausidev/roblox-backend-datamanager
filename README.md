@@ -1,29 +1,21 @@
-# Roblox Backend DataManager System
+# DataManager Backend System
 
-A modular data and stat management system built for Roblox games using the [Knit framework](https://github.com/Sleitnick/Knit). Designed for scalability, clarity, and maintainability in production environments.
+This backend system handles **persistent player data** and **stat management** using Roblox’s `DataStoreService`, built on top of the [Knit framework](https://github.com/Sleitnick/Knit). It features:
 
-## ✨ Features
+- ✅ Modular service-based structure (`DataService`, `PlayerData`, `StatService`)  
+- 🔁 Autosave & leave-save handling  
+- 📊 Extendable stat definitions  
+- 🧹 Data sanitization & self-healing templates  
+- 📡 Client sync using Knit signals  
+- ⚠️ Backend-first logic to prevent exploits  
 
-- 🔁 Periodic & on-leave autosaving
-- 📊 Extendable player stats
-- 🛠️ Auto-healing stat structure
-- 📡 Real-time updates via Knit signals
-- ⚙️ Configurable & service-based architecture
+---
 
-## 📁 Services Overview
-
-- **DataService**  
-  Abstracts access to DataStores with safety and structure.
-
-- **PlayerData**  
-  Manages per-player data loading/saving with defaults and cleanup.
-
-- **StatService**  
-  Handles stat manipulation and broadcasts real-time changes to clients.
-
-## 📦 Usage
-
-Example: Give XP to a player
+## Example Usage: Adding XP to a Player
 
 ```lua
+-- Server-side example
+local StatService = Knit.GetService("StatService")
+
+-- Add 100 XP to a player (Step = true means additive)
 StatService:GiveStat(player, "XP", 100, true)
