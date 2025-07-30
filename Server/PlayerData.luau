@@ -77,6 +77,7 @@ function PlayerData:KnitStart()
 		if not Settings.SAVE_ON_LEAVE then
 			return
 		end
+		self.LoadedPlayers[player] = nil
 		self:SavePlayer(player)
 	end)
 	
