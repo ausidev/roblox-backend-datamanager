@@ -25,6 +25,7 @@ PlayerData.LoadedPlayers = {}
 
 -- these are what the playerstats base will be
 -- you can add stats to here and it will load them
+-- anytime you add a stat or change the name increment the _version property
 PlayerData.PlayerStats = { 
 	TownLevel = 1,
 	Gold = 0,
